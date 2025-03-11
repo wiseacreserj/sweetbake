@@ -1,6 +1,7 @@
 import express from "express";
 import Product from "../models/Product.js";
 import isAuthenticated from "../middlewares/authMiddleware.js";
+import isAdmin from "../middlewares/isAdminMiddleware.js";
 import jwt from "jsonwebtoken";
 
 const router = express.Router();
@@ -8,20 +9,14 @@ const router = express.Router();
 router.get("/:id", async (req, res) => {
     const { id } = req.params;
 
-    if (!id) {
-        return res.status(400).json({
-            message: "ID parametr is required!",
-        });
-    }
-
     try {
         const product = await Product.findById(id);
         if (!product) {
-            return res.status(400).json({
+            return res.status(404).json({
                 message: "Product not found",
             });
         }
-        return res.status(201).json(product);
+        return res.status(200).json(product);
     } catch (error) {
         return res.status(500).json({
             message: "Server error",
@@ -33,7 +28,7 @@ router.get("/:id", async (req, res) => {
 router.get("/", async (req, res) => {
     try {
         const allProducts = await Product.find({});
-        return res.status(201).json(allProducts);
+        return res.status(200).json(allProducts);
     } catch (error) {
         return res.status(500).json({
             message: "Server error",
@@ -42,18 +37,18 @@ router.get("/", async (req, res) => {
     }
 });
 
-router.post("/", async (req, res) => {
+router.post("/", [isAuthenticated, isAdmin], async (req, res) => {
     const { name, description, price, image, category } = req.body;
 
-    const product = await Product.findOne({ name });
-
-    if (product) {
-        return res.status(400).json({
-            message: "Product with this name already exists!",
-        });
-    }
-
     try {
+        const product = await Product.findOne({ name });
+
+        if (product) {
+            return res.status(400).json({
+                message: "Product with this name already exists!",
+            });
+        }
+
         const newProduct = await Product.create({
             name,
             description,
@@ -70,30 +65,21 @@ router.post("/", async (req, res) => {
     }
 });
 
-router.put("/:id", async (req, res) => {
-    const { id } = req.params;
-    const { name, description, price, image, category } = req.body;
-
-    if (!id) {
-        return res.status(400).json({
-            message: "ID parameter is required!",
-        });
-    }
-
+router.put("/:id", [isAuthenticated, isAdmin], async (req, res) => {
     const options = { new: true, runValidators: true };
 
     try {
         const product = await Product.findByIdAndUpdate(
-            id,
-            { name, description, price, image, category },
+            req.params.id,
+            req.body,
             options
         );
         if (!product) {
-            return res.status(400).json({
+            return res.status(404).json({
                 message: "Product not found",
             });
         }
-        return res.status(201).json(product);
+        return res.status(200).json(product);
     } catch (error) {
         return res.status(500).json({
             message: "Server error",
@@ -102,25 +88,19 @@ router.put("/:id", async (req, res) => {
     }
 });
 
-router.delete("/:id", async (req, res) => {
+router.delete("/:id", [isAuthenticated, isAdmin], async (req, res) => {
     const { id } = req.params;
-
-    if (!id) {
-        return res.status(400).json({
-            message: "ID parameter is required!",
-        });
-    }
-
-    const options = { new: true, runValidators: true };
 
     try {
         const product = await Product.findByIdAndDelete(id);
         if (!product) {
-            return res.status(400).json({
+            return res.status(404).json({
                 message: "Product not found",
             });
         }
-        return res.status(201).json({ message: "Product delete successfull" });
+        return res.status(200).json({
+            message: `Product '${product.name}' was deleted successfully`,
+        });
     } catch (error) {
         return res.status(500).json({
             message: "Server error",
