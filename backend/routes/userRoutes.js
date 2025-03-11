@@ -36,8 +36,8 @@ router.post("/register", async (req, res) => {
     }
 
     try {
-        const newUser = new User({ username, email, password, phone });
-        await newUser.save();
+        const newUser = User.create({ username, email, password, phone });
+        //await newUser.save();
 
         const token = generateToken(newUser);
         return res.status(201).json({ token });
