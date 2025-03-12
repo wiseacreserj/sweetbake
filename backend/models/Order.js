@@ -17,9 +17,9 @@ const orderSchema = new mongoose.Schema({
         },
     ],
     totalPrice: { type: Number, required: true },
-    customerName: { type: String, required: true },
-    customerEmail: { type: String },
-    customerPhone: { type: String, required: true },
+    customerName: { type: String, required: true, default: "" },
+    customerEmail: { type: String, default: "" },
+    customerPhone: { type: String, required: true, default: "" },
     status: {
         type: String,
         enum: ["pending", "completed", "canceled"],
