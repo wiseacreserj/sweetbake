@@ -109,10 +109,4 @@ router.delete("/:id", [isAuthenticated, isAdmin], async (req, res) => {
     }
 });
 
-/* 🔹 GET / – получить все товары
-🔹 GET /:id – получить товар по ID
-🔹 POST / – добавить товар (админ)
-🔹 PUT /:id – обновить товар (админ)
-🔹 DELETE /:id – удалить товар (админ) */
-
 export default router;

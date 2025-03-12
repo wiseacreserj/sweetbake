@@ -5,6 +5,7 @@ import dotenv from "dotenv";
 
 import userRouter from "./routes/userRoutes.js";
 import productRouter from "./routes/productRoutes.js";
+import orderRouter from "./routes/orderRoutes.js";
 
 const app = express();
 
@@ -29,6 +30,7 @@ app.get("/", (req, res) => {
 
 app.use("/api/users", userRouter);
 app.use("/api/products", productRouter);
+app.use("/api/orders", orderRouter);
 
 const PORT = process.env.PORT || 5000;
 
