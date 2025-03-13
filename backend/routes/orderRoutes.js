@@ -73,7 +73,14 @@ router.post("/", optionalAuthMiddleware, async (req, res) => {
     }
 });
 
+router.get("/me", isAuthenticated, async (req, res) => {
+    const { id } = req.user.id;
+
+    const orders = Order.findMany({ _id });
+});
+
 /* Заказы (/api/orders)
+
 
 🔹 POST / – создать заказ
 🔹 GET /my-orders – получить заказы авторизованного пользователя
