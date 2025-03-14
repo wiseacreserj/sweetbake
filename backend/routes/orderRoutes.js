@@ -76,7 +76,7 @@ router.post("/", optionalAuthMiddleware, async (req, res) => {
 router.get("/me", isAuthenticated, async (req, res) => {
     const { id } = req.user.id;
 
-    const orders = Order.findMany({ _id });
+    const orders = Order.findMany({ userId: id });
 });
 
 /* Заказы (/api/orders)
