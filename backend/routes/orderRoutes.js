@@ -96,23 +96,15 @@ router.get("/:id", isAuthenticated, async (req, res) => {
     const role = req.user.role;
     const orderId = req.params.id;
 
-    /*   console.log("REQ USER: ", req.user); */
-
-    /* const user = await User.findById(userId, "role -_id");
-    console.log(user);
-    console.log(user.role);
- */
-
-    console.log(role);
     try {
-        const order = await Order.findById(orderId);
+        const order = await Order.findById(orderId).populate(
+            "products.productId"
+        );
         if (!order) {
             return res
                 .status(404)
                 .json({ message: `Order with ID: ${orderId} not found!` });
         }
-        /*  console.log("USER userId:", userId);
-        console.log("ORDER userId:", order.userId); */
         if (role === "admin" || userId === order.userId.toString()) {
             return res.status(200).json(order);
         } else {
