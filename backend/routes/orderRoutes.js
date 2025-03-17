@@ -73,10 +73,58 @@ router.post("/", optionalAuthMiddleware, async (req, res) => {
     }
 });
 
-router.get("/me", isAuthenticated, async (req, res) => {
-    const { id } = req.user.id;
+router.get("/my-orders", isAuthenticated, async (req, res) => {
+    const { id } = req.user;
 
-    const orders = Order.findMany({ userId: id });
+    try {
+        const orders = await Order.find({ userId: id }).populate(
+            "products.productId"
+        );
+
+        return res.status(200).json(orders);
+    } catch (error) {
+        console.error("Error fetching user orders:", error);
+        return res.status(500).json({
+            message: "Server error",
+            error,
+        });
+    }
+});
+
+router.get("/:id", isAuthenticated, async (req, res) => {
+    const userId = req.user.id;
+    const role = req.user.role;
+    const orderId = req.params.id;
+
+    /*   console.log("REQ USER: ", req.user); */
+
+    /* const user = await User.findById(userId, "role -_id");
+    console.log(user);
+    console.log(user.role);
+ */
+
+    console.log(role);
+    try {
+        const order = await Order.findById(orderId);
+        if (!order) {
+            return res
+                .status(404)
+                .json({ message: `Order with ID: ${orderId} not found!` });
+        }
+        /*  console.log("USER userId:", userId);
+        console.log("ORDER userId:", order.userId); */
+        if (role === "admin" || userId === order.userId.toString()) {
+            return res.status(200).json(order);
+        } else {
+            return res.status(403).json({ message: "Forbidden access" });
+        }
+    } catch (error) {
+        console.error("Error fetching order by ID:", error);
+        return res.status(500).json({
+            message: "Server error",
+            error,
+        });
+    }
 });
 
 /* Заказы (/api/orders)
