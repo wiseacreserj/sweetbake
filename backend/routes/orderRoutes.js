@@ -7,6 +7,15 @@ import isAdmin from "../middlewares/isAdminMiddleware.js";
 import jwt from "jsonwebtoken";
 import User from "../models/User.js";
 
+/* const STATUS = {
+    PENDING:"pending",
+    COMPLETED:"completed",
+    CANCELED:"canceled"
+}
+ */
+
+//const statuses = ["pending", "completed", "canceled"]
+
 const router = express.Router();
 
 router.post("/", optionalAuthMiddleware, async (req, res) => {
@@ -112,6 +121,40 @@ router.get("/:id", isAuthenticated, async (req, res) => {
         }
     } catch (error) {
         console.error("Error fetching order by ID:", error);
+        return res.status(500).json({
+            message: "Server error",
+            error,
+        });
+    }
+});
+
+router.put("/:id", [isAuthenticated, isAdmin], async (req, res) => {
+    const orderId = req.params.id;
+    const { status } = req.body;
+
+    const options = { new: true, runValidators: true };
+
+    const statuses = ["pending", "completed", "canceled"];
+
+    if (!status || !statuses.includes(status)) {
+        return res.status(400).json({ message: `Incorrect order status` });
+    }
+
+    try {
+        const order = await Order.findByIdAndUpdate(
+            orderId,
+            { status },
+            options
+        );
+        if (!order) {
+            return res
+                .status(404)
+                .json({ message: `Order with ID: ${orderId} not found!` });
+        }
+
+        return res.status(200).json(order);
+    } catch (error) {
+        console.error("Error updating order by ID:", error);
         return res.status(500).json({
             message: "Server error",
             error,
