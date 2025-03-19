@@ -2,11 +2,13 @@ import express from "express";
 import Product from "../models/Product.js";
 import isAuthenticated from "../middlewares/authMiddleware.js";
 import isAdmin from "../middlewares/isAdminMiddleware.js";
-import jwt from "jsonwebtoken";
+import { productIdValidation } from "../validation/productsValidation.js";
+import { validationResult } from "express-validator";
+import validateRequest from "../middlewares/validateMiddleware.js";
 
 const router = express.Router();
 
-router.get("/:id", async (req, res) => {
+router.get("/:id", productIdValidation, validateRequest, async (req, res) => {
     const { id } = req.params;
 
     try {
