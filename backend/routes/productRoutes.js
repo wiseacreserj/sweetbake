@@ -6,7 +6,7 @@ import validateRequest from "../middlewares/validateMiddleware.js";
 import {
     productDataValidation,
     productIdValidation,
-} from "../validation/productsValidation.js";
+} from "../validation/productValidation.js";
 import validateMiddleware from "../middlewares/validateMiddleware.js";
 
 const router = express.Router();
