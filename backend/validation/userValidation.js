@@ -29,7 +29,8 @@ export const newUserValidation = [
         .exists()
         .withMessage("Phone number is required")
         .bail()
-        .isMobilePhone("any", { strictMode: true })
+        .matches(/^\+?[1-9]\d{1,14}$/)
+        // .isMobilePhone()
         .withMessage("Phone number must be a valid international number"),
 ];
 
