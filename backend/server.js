@@ -14,7 +14,7 @@ dotenv.config();
 
 app.use(cors());
 app.use(express.json());
-app.user(cookieParser());
+app.use(cookieParser());
 
 mongoose
     .connect(
