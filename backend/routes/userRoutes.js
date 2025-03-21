@@ -117,6 +117,33 @@ router.get("/logout", (req, res) => {
     return res.status(200).json({ message: "Logout success" });
 });
 
+router.get("/refresh", (req, res) => {
+    try {
+        const { refreshToken } = req.cookies;
+        if (!refreshToken) {
+            return res.status(401).json({ message: "Invalid refresh token" });
+        }
+
+        if (!process.env.JWT_REFRESH_SECRET) {
+            return res
+                .status(500)
+                .json({ message: "Missing refresh token secret" });
+        }
+
+        const decoded = jwt.verify(
+            refreshToken,
+            process.env.JWT_REFRESH_SECRET
+        );
+        const { user } = decoded;
+        const { accessToken } = generateTokens(user);
+        return res.status(201).json({ token: accessToken });
+    } catch (error) {
+        return res
+            .status(403)
+            .json({ message: "Invalid or expired refresh token" });
+    }
+});
+
 router.get("/profile", isAuthenticated, async (req, res) => {
     const { id } = req.user;
 
