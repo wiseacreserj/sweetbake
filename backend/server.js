@@ -6,6 +6,7 @@ import dotenv from "dotenv";
 import userRouter from "./routes/userRoutes.js";
 import productRouter from "./routes/productRoutes.js";
 import orderRouter from "./routes/orderRoutes.js";
+import cookieParser from "cookie-parser";
 
 const app = express();
 
@@ -13,6 +14,7 @@ dotenv.config();
 
 app.use(cors());
 app.use(express.json());
+app.user(cookieParser());
 
 mongoose
     .connect(
