@@ -3,7 +3,7 @@ import {} from "react";
 import "./App.css";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
-import { fetchLogin } from "./store/authSlice";
+import { fetchLogin, fetchLogout } from "./store/authSlice";
 
 function App() {
     const { status } = useSelector((state) => state.auth);
@@ -22,6 +22,7 @@ function App() {
             >
                 Login
             </button>
+            <button onClick={() => dispatch(fetchLogout())}>Logout</button>
         </>
     );
 }
