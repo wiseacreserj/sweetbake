@@ -65,9 +65,18 @@ const authSlice = createSlice({
             })
             .addCase(fetchRefresh.fulfilled, (state, action) => {
                 state.token = action.payload.token;
+            })
+            .addCase(fetchLogout.fulfilled, (state) => {
+                state.token = null;
+                state.status = "idle";
+                state.error = null;
+            })
+            .addCase(fetchLogout.rejected, (state) => {
+                state.token = null;
+                state.status = "idle";
+                state.error = null;
             });
     },
 });
 
-export const { logout } = authSlice.actions;
 export default authSlice.reducer;
