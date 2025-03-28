@@ -5,9 +5,9 @@ import { Provider } from "react-redux";
 import { PersistGate } from "redux-persist/integration/react";
 
 import "./index.css";
-import "./styles/reset.css";
-import "./styles/variables.css";
-import "./styles/global.css";
+import "./assets/styles/reset.css";
+import "./assets/styles/variables.css";
+import "./assets/styles/global.css";
 
 import App from "./App.jsx";
 

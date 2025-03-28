@@ -1,0 +1,6 @@
+@import "./typography.css";
+
+body {
+    font-family: "Oswald";
+    font-size: 48px;
+}
