@@ -1,6 +1,15 @@
+@import "./reset.css";
+@import "./variables.css";
 @import "./typography.css";
 
-body {
+/* body {
     font-family: "Oswald";
     font-size: 48px;
+}
+ */
+
+a {
+    /*  font-family: "Poppins"; */
+    text-decoration: none;
+    color: black;
 }

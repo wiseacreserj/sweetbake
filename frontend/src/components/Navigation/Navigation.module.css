@@ -1,0 +1,13 @@
+.nav_link {
+    font-family: var(--nav-link-font);
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--nav-link-color);
+    text-transform: uppercase;
+    margin-right: 10px;
+    transition: color 0.3s;
+}
+
+.nav_link:hover {
+    color: var(--nav-link-hover-color);
+}

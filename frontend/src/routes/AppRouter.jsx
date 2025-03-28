@@ -6,14 +6,14 @@ import LoginPage from "../pages/LoginPage/LoginPage";
 
 const AppRouter = () => {
     return (
-        <Router>
-            <Routes>
-                <Route path="/" element={<HomePage />} />
-                <Route path="/login" element={<LoginPage />} />
-                <Route path="/catalog" element={<CatalogPage />} />
-                <Route path="*" element={<NotFoundPage />} />
-            </Routes>
-        </Router>
+        /*  <Router> */
+        <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/login" element={<LoginPage />} />
+            <Route path="/catalog" element={<CatalogPage />} />
+            <Route path="*" element={<NotFoundPage />} />
+        </Routes>
+        /*   </Router> */
     );
 };
 
