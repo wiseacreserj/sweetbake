@@ -3,10 +3,11 @@
 }
 
 .bannerSection {
-    position: relative;
+    /* position: relative; */
 }
 
 .banner {
+    position: relative;
     width: 100%;
 }
 
