@@ -2,9 +2,11 @@
     width: 100%;
 }
 
-.bannerSection {
-    /* position: relative; */
-}
+/* Banner Section----------------------------------- */
+
+/* .bannerSection {
+    position: relative;
+} */
 
 .banner {
     position: relative;
@@ -15,7 +17,7 @@
     position: absolute;
     top: 80px;
     left: 30px;
-    opacity: 0.75;
+    opacity: 0.85;
     width: 400px;
     height: 200px;
     z-index: 10;
@@ -29,13 +31,14 @@
 }
 
 .bannerInnerContent h2 {
-    font-family: var(--h2-font);
+    color: #43234c;
+    font-weight: 600;
     font-size: 54px;
     line-height: 68px;
     text-align: center;
 }
 .bannerInnerContent p {
-    font-family: var(--p-font);
+    color: #43234c;
     font-size: 18px;
     text-align: center;
     line-height: 30px;
@@ -51,4 +54,65 @@
     width: 100%;
     height: 750px;
     object-fit: none;
+}
+
+/* Products Section ----------------------------------- */
+
+.productsSection {
+    background-color: white;
+    margin-top: 0px;
+    height: 600px;
+}
+
+.productsSectionContent {
+    margin: 0 auto;
+    max-width: 1280px;
+}
+
+.productsTextContent {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0 20px;
+    padding-top: 50px;
+    text-align: center;
+}
+
+.productsTextContent h3 {
+    font-weight: 500;
+    font-size: 54px;
+    line-height: 68px;
+}
+
+.productsTextContent p {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 20px;
+}
+
+.viewMoreLink {
+    position: relative;
+    width: max-content;
+    font-family: var(--nav-link-font);
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--nav-link-color);
+    text-transform: uppercase;
+    margin-top: 40px;
+    transition: color 0.3s;
+}
+
+.viewMoreLink::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+    width: 100%;
+    height: 2px;
+    background-color: var(--link-color);
+}
+
+.viewMoreLink:hover {
+    color: var(--link-hover-color);
 }

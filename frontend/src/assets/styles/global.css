@@ -8,8 +8,19 @@
 }
  */
 
+h1,
+h2,
+h3 {
+    font-family: var(--h-font-family);
+    color: var(--h-font-color);
+}
+
+p {
+    font-family: var(--p-font-family);
+}
+
 a {
-    /*  font-family: "Poppins"; */
+    /* font-family: "Poppins"; */
     text-decoration: none;
     color: black;
 }

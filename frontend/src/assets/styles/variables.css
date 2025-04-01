@@ -1,7 +1,14 @@
 :root {
+    --link-color: #00211a;
+    --link-hover-color: #bad8e4;
     --nav-link-font: "Poppins", sans-serif;
     --nav-link-color: #00211a;
     --nav-link-hover-color: #bad8e4;
-    --h2-font: "Oswald", sans-serif;
-    --p-font: "Poppins", sans-serif;
+    --h-font-family: "Playfair", "Oswald", sans-serif;
+    --h-font-color: #00211a;
+    --h1-font-family: "Playfair", "Oswald", sans-serif;
+    --h2-font-family: "Playfair", "Oswald", sans-serif;
+    --h3-font-family: "Playfair", "Oswald", sans-serif;
+
+    --p-font-family: "Poppins", sans-serif;
 }
