@@ -1,3 +1,6 @@
+import CategoryListItem from "../CategoryListItem/CategoryListItem";
+import styles from "./CategoryList.module.css";
+
 const CategoryList = () => {
     const data = [
         {
@@ -31,7 +34,20 @@ const CategoryList = () => {
                 "https://www.southernliving.com/thmb/zRo2u_HuXVt3tMpsARNOQTtQRH4=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Southern_Living_Shirley_Temple_SEO49-beauty-1-08cefeefb1a34bea898bd871591a5ec5.jpg",
         },
     ];
-    return <></>;
+    return (
+        <div className={styles.container}>
+            {" "}
+            {data.map((item, index) => {
+                return (
+                    <CategoryListItem
+                        category={item.categoryName}
+                        imageUrl={item.imageUrl}
+                        key={index}
+                    />
+                );
+            })}
+        </div>
+    );
 };
 
 export default CategoryList;

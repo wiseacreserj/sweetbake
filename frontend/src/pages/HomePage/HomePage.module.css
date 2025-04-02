@@ -61,11 +61,15 @@
 .productsSection {
     background-color: white;
     margin-top: 0px;
-    height: 600px;
+    /*  height: 600px; */
 }
 
 .productsSectionContent {
-    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* margin: 0 auto; */
     max-width: 1280px;
 }
 
