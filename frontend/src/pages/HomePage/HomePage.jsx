@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 
 import styles from "./HomePage.module.css";
-import bannerImg from "../../assets/images/home_page_banner.jpg";
+import bannerImg from "../../assets/images/home/home_page_banner.jpg";
 import CategoryList from "../../components/CategoryList/CategoryList";
 
 const HomePage = () => {
