@@ -52,6 +52,7 @@ const HomePage = () => {
                     <CategoryList />
                 </div>
             </section>
+            <section></section>
         </div>
     );
 };
