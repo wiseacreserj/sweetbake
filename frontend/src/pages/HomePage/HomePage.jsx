@@ -52,7 +52,7 @@ const HomePage = () => {
                     <CategoryList />
                 </div>
             </section>
-            <section></section>
+            <section>Section</section>
         </div>
     );
 };
