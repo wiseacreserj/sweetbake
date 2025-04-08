@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "./App.css";
 import AppRouter from "./routes/AppRouter";
 import Header from "./components/Header/Header";
+import Footer from "./components/Footer/Footer";
 
 function App() {
     return (
@@ -12,6 +13,7 @@ function App() {
                 <main style={{ backgroundColor: "gray", minHeight: "100vh" }}>
                     <AppRouter />
                 </main>
+                <Footer />
             </div>
         </Router>
     );

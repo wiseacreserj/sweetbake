@@ -55,18 +55,18 @@ const HomePage = () => {
             <section className={styles.eventsSection}>
                 <div className={styles.eventsSectionContent}>
                     <div className={styles.eventsTextContent}>
-                        <h3>Catering, Gifting & Events</h3>
+                        <h3>Gifting & Events</h3>
                         <p>
-                            Our catering, gifting and events team is ready to
-                            fill your event or celebration with a custom
-                            selection of Magnolia Bakery’s best creations. No
-                            occasion is too large—or too small!
+                            Our gifting and events team is ready to fill your
+                            event or celebration with a custom selection of
+                            Sweetbake best creations. No occasion is too
+                            large—or too small!
                         </p>
                     </div>
                     <div className={styles.eventsImageContainer}>
                         <img
                             className={styles.eventsImage}
-                            src="https://lirp.cdn-website.com/md/pexels/dms3rep/multi/opt/pexels-photo-587741-640w.jpeg"
+                            src="/src/assets/images/home/cake.png"
                             alt="events image"
                         />
                     </div>

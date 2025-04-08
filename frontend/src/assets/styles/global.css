@@ -17,6 +17,7 @@ h3 {
 
 p {
     font-family: var(--p-font-family);
+    color: var(--p-default-font-color);
 }
 
 a {
