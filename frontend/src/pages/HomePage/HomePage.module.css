@@ -61,7 +61,8 @@
 .productsSection {
     background-color: white;
     margin-top: 0px;
-    /*  height: 600px; */
+    display: flex;
+    justify-content: center;
 }
 
 .productsSectionContent {
@@ -119,4 +120,42 @@
 
 .viewMoreLink:hover {
     color: var(--link-hover-color);
+}
+
+/* Events Section ----------------------------------- */
+
+.eventsSection {
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: palevioletred;
+}
+
+.eventsSectionContent {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    /* margin: 0 auto; */
+    max-width: 1280px;
+}
+
+.eventsTextContent {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    padding: 0 15px;
+}
+
+.eventsTextContent h3 {
+    font-weight: 500;
+    font-size: 54px;
+    line-height: 68px;
+}
+
+.eventsTextContent p {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 20px;
 }
