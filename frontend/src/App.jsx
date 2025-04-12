@@ -10,7 +10,9 @@ function App() {
         <Router>
             <div className="app-container">
                 <Header />
-                <main style={{ backgroundColor: "gray", minHeight: "100vh" }}>
+                <main
+                    style={{ backgroundColor: "gray" /* minHeight: "100vh" */ }}
+                >
                     <AppRouter />
                 </main>
                 <Footer />

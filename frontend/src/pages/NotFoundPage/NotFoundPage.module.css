@@ -1,0 +1,37 @@
+.notFoundContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #eda9a2;
+
+    height: calc(100vh - 135px);
+}
+
+.notFoundContent {
+    width: 300px;
+    text-align: center;
+}
+
+.notFoundContent p {
+    font-size: 70px;
+    font-weight: 600;
+}
+
+.notFoundContent span {
+    font-size: 60px;
+    font-style: italic;
+    font-weight: 500;
+}
+
+.homeLink {
+    display: block;
+    width: fit-content;
+    margin: 0 auto;
+    margin-top: 20px;
+    padding: 15px;
+    background-color: #8f8e8e;
+    font-family: var(--nav-link-font);
+    color: white;
+    border-radius: 15px;
+}
