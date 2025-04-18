@@ -9,6 +9,8 @@ const AppRouter = () => {
         /*  <Router> */
         <Routes>
             <Route path="/" element={<HomePage />} />
+            <Route path="/login" element={<LoginPage mode="login" />} />
+            <Route path="/register" element={<LoginPage mode="register" />} />
             <Route path="/login" element={<LoginPage />} />
             <Route path="/catalog" element={<CatalogPage />} />
             <Route path="*" element={<NotFoundPage />} />
