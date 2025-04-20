@@ -2,11 +2,11 @@
 @import "./variables.css";
 @import "./typography.css";
 
-/* body {
-    font-family: "Oswald";
-    font-size: 48px;
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
 }
- */
 
 h1,
 h2,
