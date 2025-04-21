@@ -7,3 +7,15 @@
     flex-direction: column;
     width: 50%;
 }
+
+.formContainer input {
+    outline: none;
+    border: none;
+    border-bottom: 1px solid black;
+}
+
+.formContainer input:active,
+.formContainer input:focus {
+    border: none;
+    border-bottom: 2px solid black;
+}
