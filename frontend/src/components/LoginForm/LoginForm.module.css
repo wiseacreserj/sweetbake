@@ -8,15 +8,23 @@
     width: 50%;
 }
 
-.formContainer input {
-    margin-top: 20px;
+.formItem {
+    display: flex;
+    flex-direction: column;
+}
+
+.formItem:not(:first-child) {
+    margin-top: 15px;
+}
+
+.formItem input {
     outline: none;
     border: none;
     border-bottom: 1px solid black;
 }
 
-.formContainer input:active,
-.formContainer input:focus {
+.formItem input:active,
+.formItem input:focus {
     border: none;
     border-bottom: 2px solid black;
 }

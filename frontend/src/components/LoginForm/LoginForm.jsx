@@ -13,7 +13,7 @@ const LoginForm = () => {
     return (
         <div className={styles.formContainer}>
             <form onSubmit={handleSubmit(() => console.log(watch()))}>
-                <div>
+                <div className={styles.formItem}>
                     <label htmlFor="email">Email</label>
                     <input
                         type="email"
@@ -21,7 +21,7 @@ const LoginForm = () => {
                         placeholder="Email"
                     />
                 </div>
-                <div>
+                <div className={styles.formItem}>
                     <label htmlFor="password">Password</label>
                     <input
                         type="email"
