@@ -13,18 +13,23 @@ const LoginForm = () => {
     return (
         <div className={styles.formContainer}>
             <form onSubmit={handleSubmit(() => console.log(watch()))}>
-                <label htmlFor="email">Email</label>
-                <input
-                    type="email"
-                    {...register("email")}
-                    placeholder="Email"
-                />
-                <label htmlFor="password">Password</label>
-                <input
-                    type="email"
-                    {...register("password")}
-                    placeholder="Password"
-                />
+                <div>
+                    <label htmlFor="email">Email</label>
+                    <input
+                        type="email"
+                        {...register("email")}
+                        placeholder="Email"
+                    />
+                </div>
+                <div>
+                    <label htmlFor="password">Password</label>
+                    <input
+                        type="email"
+                        {...register("password")}
+                        placeholder="Password"
+                    />
+                </div>
+
                 <button type="submit">Login</button>
             </form>
         </div>
