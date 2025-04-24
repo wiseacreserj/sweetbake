@@ -13,10 +13,12 @@ const LoginPage = ({ mode }) => {
 
     return (
         <div className={styles.loginPageContainer}>
-            {isLogin ? <LoginForm /> : <RegisterForm />}
-            <button onClick={handleSwitch}>
-                {isLogin ? "Create Account " : "Already have account?"}
-            </button>
+            <div className={styles.formContainer}>
+                {isLogin ? <LoginForm /> : <RegisterForm />}
+                <button onClick={handleSwitch}>
+                    {isLogin ? "Create Account " : "Already have account?"}
+                </button>
+            </div>
         </div>
     );
 };
